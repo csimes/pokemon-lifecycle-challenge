@@ -7,7 +7,7 @@ class PokeFetch extends Component {
             pokeInfo: "",
             pokeSprite: "",
             pokeName: "",
-            seconds: 10
+            seconds: ""
         }
     }
 
@@ -19,15 +19,6 @@ class PokeFetch extends Component {
       } 
         }, 1000) 
     }
-
-// reset() {
-//     this.myInterval = setInterval(() => {
-//         const { seconds } = this.state;
-//         if (seconds === 0) {
-//             this.setState(({ seconds }) => ({ seconds: 10 }));
-//         }
-//     }, 1000); 
-// }
 
     componentDidMount() {
         let min = Math.ceil(1);
@@ -61,9 +52,9 @@ class PokeFetch extends Component {
                 <button
                     className={"start"}
                     onClick={() => {
+                      this.setState({ seconds: 10 });
                         this.componentDidMount();
                         this.timer();
-                        // this.reset()
                     }}
                 >
                     Start!
@@ -74,7 +65,6 @@ class PokeFetch extends Component {
                         alt=""
                         className={"pokeImg"}
                         style={{filter: "brightness(0%)"}}
-                        // id={"hide"}
                         src={this.state.pokeSprite}
                     />
                     <h1 className={"pokeName"} style={{display: 'none'}}>{this.state.pokeName}</h1>
@@ -84,9 +74,9 @@ class PokeFetch extends Component {
                 <button
                     className={"start"}
                     onClick={() => {
+                      this.setState({ seconds: 10 });
                         this.componentDidMount();
                         this.timer();
-                        // this.reset()
                     }}
                 >
                     Start!
@@ -96,7 +86,6 @@ class PokeFetch extends Component {
                     <img
                         alt=""
                         className={"pokeImg"}
-                        // id={"hide"}
                         src={this.state.pokeSprite}
                     />
                     <h1 className={"pokeName"}>{this.state.pokeName}</h1>
