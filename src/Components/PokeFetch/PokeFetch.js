@@ -11,6 +11,7 @@ class PokeFetch extends Component {
         }
     }
 
+    // TODO: Fix galloping countdown on refresh
     timer() {
     this.myInterval = setInterval(() => {
       const { seconds } = this.state;
@@ -36,11 +37,14 @@ class PokeFetch extends Component {
                 });
             })
             .catch((err) => console.log(err));
+            this.timer()
     }
 
-    // componentWillUnmount() {
-    //     clearInterval(this.seconds);
-    // }
+
+
+    componentWillUnmount() {
+        clearInterval(this.seconds);
+    }
   
 
 
@@ -53,8 +57,8 @@ class PokeFetch extends Component {
                     className={"start"}
                     onClick={() => {
                       this.setState({ seconds: 10 });
-                        this.componentDidMount();
-                        this.timer();
+                        // this.componentDidMount();
+                        // this.timer();
                     }}
                 >
                     Start!
